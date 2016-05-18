@@ -5,8 +5,6 @@ import datetime
 from decimal import Decimal
 from uuid import UUID
 
-from six import binary_type
-
 from json_encoder import json
 
 
@@ -55,7 +53,7 @@ def test_encode_datetime_with_timezone():
 
 def test_encode_decimal():
     result = json.dumps(Decimal('0.001'))
-    assert result == binary_type('0.001')
+    assert result == str('0.001')
 
 
 def test_encode_uuid():
