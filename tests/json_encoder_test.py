@@ -5,7 +5,17 @@ import datetime
 from decimal import Decimal
 from uuid import UUID
 
-from json_encoder import json
+from json_encoder import json, get_json_library
+
+
+def test_used_json_library():
+    library = get_json_library()
+    try:
+        import simplejson as json
+    except ImportError:
+        import json
+
+    assert library is json
 
 
 def test_encode_time():
