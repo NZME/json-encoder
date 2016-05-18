@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from datetime import date, time
+from decimal import Decimal
 from uuid import UUID
 
 from six import text_type, PY34
@@ -20,6 +21,11 @@ def json_encoder(obj):
 @json_encoder.register(UUID)
 def encode_uuid(obj):
     return text_type(obj)
+
+
+@json_encoder.register(Decimal)
+def encode_decimal(obj):
+    return float(obj)
 
 
 @json_encoder.register(date)

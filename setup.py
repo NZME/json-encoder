@@ -42,6 +42,7 @@ setup(
     author='NZME',
     author_email='sysadmin@grabone.co.nz',
     long_description=read('README.md'),
+    setup_requires=['pytest-runner'],
     install_requires=[
         'six>=1.10.0',
         "singledispatch>=3.4.0.3; python_version < '3.4'",
@@ -59,5 +60,6 @@ setup(
     ],
     extras_require={
         'simplejson': ['simplejson>=3.8.2'],
-    }
+    },
+    tests_require=['pytest']
 )
