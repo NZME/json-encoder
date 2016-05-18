@@ -1,11 +1,25 @@
 # -*- coding: utf-8 -*-
-# from __future__ import unicode_literals
+from __future__ import unicode_literals
 
 import codecs
 import os
 import re
 
+import pkg_resources
 from setuptools import setup, find_packages
+
+
+def version_number(package, deep=3):
+    version = pkg_resources.get_distribution(package).version.split('.')[:deep]
+    version.extend([0] * (deep - len(version)))
+    return int(''.join(version))
+
+
+pip_version = version_number('pip')
+assert pip_version >= 812, "installation require pip>=8.1.2 to solve this issue run 'pip install --upgrade pip'"
+
+setuptools_version = version_number('setuptools')
+assert setuptools_version >= 2022, "installation require setuptools>=20.2.2 to solve this issue run 'pip install --upgrade setuptools'"
 
 
 def read(*parts):
