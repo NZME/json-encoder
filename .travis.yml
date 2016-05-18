@@ -5,8 +5,18 @@ python:
   - 3.4
   - pypy
 env:
+  matrix:
   - JSON_LIBRARY=native
-  - JSON_LIBRARY=simplejson
+matrix:
+  include:
+  - python: '2.7'
+    env: JSON_LIBRARY=native
+  - python: '2.7'
+    env: JSON_LIBRARY=simplejson
+  - python: '3.5'
+    env: JSON_LIBRARY=native
+  - python: '3.5'
+    env: JSON_LIBRARY=simplejson
 cache:
   directories:
   - .cache/pip/
