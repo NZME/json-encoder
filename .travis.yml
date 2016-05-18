@@ -11,8 +11,6 @@ cache:
   - docs/node_modules/
   - $HOME/docs/node_modules
 install:
-  - "pip install 'pip >= 8.1.2'"
-  - "pip install 'setuptools >= 20.2.2'"
 script: python setup.py test
 sudo: false
 deploy:
