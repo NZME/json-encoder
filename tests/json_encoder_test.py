@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import datetime
+from contextlib import contextmanager
 from decimal import Decimal
 from uuid import UUID
 
@@ -19,14 +20,18 @@ def test_used_json_library():
     assert library is json
 
 
-class TestEncoderOverwritable(object):
-    original = None
+# https://docs.python.org/2/library/contextlib.html#contextlib.contextmanager
+@contextmanager
+def overwrite_json_encoder():
+    # store original encoder implementation
+    original = json_encoder.registry[datetime.time]
+    yield
+    # set back original encoder implementation
+    json_encoder.register(datetime.time, original)
 
-    def setup_method(self, method):
-        # store original encoder
-        self.original = json_encoder.registry[datetime.time]
 
-    def test_encoder_overwritable(self):
+def test_encoder_overwritable():
+    with overwrite_json_encoder():
         # define and register my special encoder for instances of time
         @json_encoder.register(datetime.time)
         def _(obj):
@@ -35,10 +40,6 @@ class TestEncoderOverwritable(object):
         value = datetime.time(1, 2, 3)
         result = json.dumps(value)
         assert result == '"{}"'.format(repr(value))
-
-    def teardown_method(self, method):
-        # set back original encoder
-        json_encoder.register(datetime.time, self.original)
 
 
 #  encoder related tests
