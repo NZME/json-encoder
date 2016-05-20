@@ -9,9 +9,9 @@ env:
   - JSON_LIBRARY=simplejson
 matrix:
   exclude:
-  - python: '3.4'
+  - python: 3.4
     env: JSON_LIBRARY=simplejson
-  - python: 'pypy'
+  - python: pypy
     env: JSON_LIBRARY=simplejson
 cache:
   directories:
