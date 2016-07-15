@@ -35,7 +35,7 @@ setup(
     author_email='sysadmin@grabone.co.nz',
     description='json encoder using singledispatch pattern instead of '
                 'JSONEncoder class overwrites',
-    long_description=read('README.md'),
+    long_description=read('README.rst'),
     setup_requires=['pytest-runner'],
     install_requires=install_requires,
     packages=find_packages(exclude=["tests"]),
