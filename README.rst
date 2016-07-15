@@ -78,7 +78,7 @@ Configuration
 Requirements
 ------------
 
-* `singledispatch`_ >= 3.4.0.3 for python 2.x only
+* `singledispatch`_ >= 3.4.0.3 for python version < 3.4 only
 
 .. _singledispatch pattern: https://docs.python.org/3/library/functools.html#functools.singledispatch
 .. _singledispatch: https://bitbucket.org/ambv/singledispatch
