@@ -25,7 +25,7 @@ def find_version(*file_paths):
 
 install_requires = ['six>=1.10.0']
 if sys.version_info[0:2] < (3, 4):
-    # required for python < 3.4s
+    # required for python < 3.4
     install_requires.append('singledispatch>=3.4.0.3')
 
 setup(
@@ -33,7 +33,7 @@ setup(
     version=find_version('json_encoder', '__init__.py'),
     author='NZME',
     author_email='sysadmin@grabone.co.nz',
-    description='json encoder using singledispatch pattern instead of '
+    description='json encoder uses singledispatch pattern instead of '
                 'JSONEncoder class overwrites',
     long_description=read('README.rst'),
     setup_requires=['pytest-runner'],

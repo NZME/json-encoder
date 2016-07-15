@@ -1,15 +1,17 @@
 json-encoder
 =======================
 
-* json encoder using `singledispatch pattern`_ instead of JSONEncoder class overwrites.
+* json encoder uses `singledispatch pattern`_ instead of JSONEncoder class overwrites.
 
 * No more *json.dumps(data, csl=MyJSONEncoder)* everywhere.
 
-* Default serialization for time, date, datetime, UUID and Decimal
+* Comes with default serialization for time, date, datetime, UUID and Decimal
 
 * Easy to use, easy to change serialization behaviour
 
 * Not tight to any json implementation *json, simplejson, ujson* ...
+
+* It parse json float numbers into Decimal objects to prevent python float precision issues.
 
 
 .. image:: https://travis-ci.org/NZME/json-encoder.svg?branch=master
@@ -29,28 +31,28 @@ Quick start
 
     from json_encoder import json
     
-    result = json.dumps(json)
+    result = json.dumps(data)
 
 Configuration
 -------------
 
 * Chose json implementation::
 
-    # simplejson library is uses as default json implementation 
-    # if simplejson isn't installed then python json implementation is used
+    # simplejson library is used as default json implementation if present
+    # otherwise standard python json implementation is used
     # to use other json implementation globally, do:
     
-    import ujson as json
+    import ujson
     from json_encoder import use_json_library
     
-    use_json_library(json)
+    use_json_library(ujson)
 
 * To change json implementation for concrete call do::
 
     from json_encoder import json
     import simplejson
     
-    result = json.dumps(json, json=simplejson)
+    result = json.dumps(data, json=simplejson)
 
 * To make your object JSON serializable do::
 
@@ -60,7 +62,7 @@ Configuration
     from json_encoder.encoder import json_encoder
     
     @json_encoder.register(Fraction)
-    def encode_decimal(obj):
+    def encode_fraction(obj):
         return '{}/{}'.format(obj.numerator, obj.denominator)
 
 * To overwrite JSON serializer behaviour defined in json_encoder.encoder::
