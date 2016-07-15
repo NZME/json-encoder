@@ -3,13 +3,13 @@ json-encoder
 
 * json encoder using `singledispatch pattern`_ instead of JSONEncoder class overwrites.
 
-* No more json.dumps(csl=MyJSONEncoder) everywhere.
+* No more *json.dumps(data, csl=MyJSONEncoder)* everywhere.
 
 * Default serialization for time, date, datetime, UUID and Decimal
 
 * Easy to use, easy to change serialization behaviour
 
-* Not tight to any json implementation json, simplejson, ujson...
+* Not tight to any json implementation *json, simplejson, ujson* ...
 
 
 .. image:: https://travis-ci.org/NZME/json-encoder.svg?branch=master
