@@ -33,6 +33,8 @@ setup(
     version=find_version('json_encoder', '__init__.py'),
     author='NZME',
     author_email='sysadmin@grabone.co.nz',
+    description='json encoder using singledispatch pattern instead of '
+                'JSONEncoder class overwrites',
     long_description=read('README.md'),
     setup_requires=['pytest-runner'],
     install_requires=install_requires,
