@@ -41,7 +41,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     include_package_data=True,
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
