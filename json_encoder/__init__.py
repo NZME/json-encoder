@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-__version__ = '0.4.3'
+__version__ = '0.4.4'
 
 _json_library = None
 

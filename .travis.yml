@@ -19,6 +19,8 @@ cache:
   - $HOME/.cache/pip
   - docs/node_modules/
   - $HOME/docs/node_modules
+before_install:
+  - pip install --upgrade pytest
 install:
   - |
     if [ "$JSON_LIBRARY" = simplejson ]; then

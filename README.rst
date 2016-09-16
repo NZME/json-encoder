@@ -14,8 +14,11 @@ json-encoder
 * It parse json float numbers into Decimal objects to prevent python float precision issues.
 
 
-.. image:: https://travis-ci.org/NZME/json-encoder.svg?branch=master
+.. image:: https://travis-ci.org/NZME/json-encoder.svg?branch=master&maxAge=259200
     :target: https://travis-ci.org/NZME/json-encoder
+
+.. image:: https://img.shields.io/pypi/v/json-encoder.svg?maxAge=259200
+    :target: https://pypi.python.org/pypi/json-encoder
 
 Installation
 ------------
